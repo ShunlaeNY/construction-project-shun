@@ -1,0 +1,66 @@
+.calendar-container {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.calendar-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.calendar-view {
+  display: flex;
+  flex-direction: column;
+}
+
+.week-view {
+  display: flex;
+  overflow-x: auto;
+}
+
+.month-scrollable-row {
+  display: flex;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  gap: 10px; /* Add spacing between dates */
+  padding-bottom: 10px;
+  scrollbar-width: thin; /* Optional: customize scrollbar width */
+}
+
+.date-cell {
+  flex: 0 0 100px; /* Set each date cell to a fixed width */
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: #2f6aa6;
+}
+
+.date-cell .day {
+  font-weight: bold;
+  color: #666;
+}
+
+.date-cell .date {
+  font-size: 14px;
+}
+
+.date-cell.today {
+  background: #ffe8a1;
+  border-color: #f0c04a;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:hover {
+  background: #e0e0e0;
+}

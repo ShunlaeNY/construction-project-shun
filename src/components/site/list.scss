@@ -1,0 +1,60 @@
+//import function
+
+@use "../../assets/styles/components/functions" as *;
+
+//import components
+@import "../../assets/styles/components/variables";
+@import "../../assets/styles/components/mixins";
+
+.siteHeader {
+  position: static;
+  background-color: #363636;
+  padding: px-to-rem(20);
+
+  border-radius: px-to-rem(15);
+  @include grid(
+    px-to-rem(10) 17% 20% 20% 20% 10% px-to-rem(20),
+    1fr,
+    px-to-rem(20)
+  );
+
+  div {
+    @include flex(row, center, center, px-to-rem(5));
+  }
+}
+.siteListData {
+  width: 100%;
+  max-height: 56vh;
+  overflow-y: scroll;
+  text-align: center;
+  &::-webkit-scrollbar {
+    width: 5px; // Set scrollbar width
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $primaryColor; // Style scrollbar thumb
+    border-radius: px-to-rem(10);
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent; // Optional: Customize scrollbar track
+  }
+
+  .data {
+    @include grid(
+      px-to-rem(10) 17% 20% 20% 20% 10% px-to-rem(20),
+      1fr,
+      px-to-rem(20)
+    );
+    align-items: start;
+    margin: px-to-rem(10) 0;
+    padding: px-to-rem(20);
+    border-radius: px-to-rem(15);
+    background-color: $listBoxGrayColor;
+    touch-action: none;
+
+    .detailBtn {
+      text-align: right;
+    }
+  }
+}

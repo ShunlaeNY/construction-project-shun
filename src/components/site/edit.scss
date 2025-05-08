@@ -1,0 +1,411 @@
+//import function
+@use "../../assets/styles/components/functions" as *;
+
+//import components
+@import "../../assets/styles/components/variables";
+@import "../../assets/styles/components/mixins";
+
+.modelTitle {
+  @include flex(row, space-between, center, 0px);
+
+  // padding: 0 20px;
+  h4 {
+    width: 96%;
+    text-align: center;
+  }
+
+  button {
+    justify-self: flex-end;
+    padding-right: 20px;
+    border-radius: 20px;
+  }
+}
+
+.siteModal {
+  left: 20%;
+  // background-color: red;
+}
+
+.siteEdit {
+  top: 20%;
+  left: 20%;
+  z-index: 20;
+  // width: 50vw;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #999;
+  transition: color 0.2s;
+}
+
+.close-button:hover {
+  color: #ff7b04;
+  background-color: #363636;
+}
+
+.siteEditForm {
+  width: 58vw;
+  padding: px-to-rem(10);
+
+  @include grid(13% 85%, 1fr, 2%);
+}
+
+.tabMenu {
+  @include flex(column, space-between, center, px-to-rem(50));
+  margin: px-to-rem(50) 0;
+
+  .tabMenuItem {
+    text-align: center;
+    width: px-to-rem(50);
+    height: px-to-rem(50);
+    padding: px-to-rem(10);
+    border-radius: px-to-rem(10);
+
+    svg {
+      width: px-to-rem(30);
+      height: px-to-rem(30);
+    }
+
+    small {
+      color: $secondaryColor;
+    }
+  }
+
+  .activeTabMenu {
+    background-color: $itemGrayColor;
+  }
+}
+
+.tabContent {
+  height: 65vh;
+  background-color: rgba(54, 54, 54, 0.1882352941);
+  border-radius: px-to-rem(5);
+
+  .detailTab {
+    padding: px-to-rem(20);
+    @include grid(1fr 1fr, 1fr, px-to-rem(10));
+
+    // align-items: end;
+    &Content {
+      @include flex(column, space-between, flex-start, 0);
+
+      h2 {
+        color: $secondaryColor;
+        margin-bottom: px-to-rem(10);
+      }
+
+      &Item {
+        svg {
+          height: 20px;
+        }
+
+        margin-top: px-to-rem(10);
+        @include flex(row, flex-start, center, px-to-rem(20));
+      }
+    }
+
+    &MapContainer {
+      div {
+        // background-color: $instructionGrayColor;
+        border-radius: 3px;
+        // margin-bottom: px-to-rem(10);
+      }
+    }
+  }
+
+  .editSiteTab {
+    padding: px-to-rem(20);
+
+    h2 {
+      color: $secondaryColor;
+      margin-bottom: 10px;
+    }
+
+    &Content {
+      background-color: $listBoxGrayColor;
+      height: 45vh;
+      // overflow-y: scroll;
+      padding: px-to-rem(20);
+      border-radius: 3px;
+      @include grid(1fr 1fr, 1fr, px-to-rem(20));
+
+      // div {
+      //   margin-bottom: 7px;
+      // }
+
+      .scheduleDiv {
+        margin-top: 15px;
+        background-color: $itemGrayColor;
+        padding: px-to-rem(15) px-to-rem(10);
+        border-radius: px-to-rem(5);
+      }
+    }
+  }
+
+  .title {
+    background-color: $itemGrayColor;
+    width: 100%;
+    padding: px-to-rem(5) 0;
+    border-radius: px-to-rem(15) px-to-rem(15) px-to-rem(0) px-to-rem(0);
+    text-align: center;
+
+    h4 {
+      color: $secondaryColor;
+    }
+  }
+
+  .editScheduleTab {
+    background-color: $modelBoxBgColor;
+    position: absolute;
+    bottom: 5%;
+    left: 20%;
+    z-index: 20;
+    box-shadow: rgba(244, 244, 244, 0.15) 1.95px 1.95px 2.6px;
+    border-radius: 20px;
+
+    // z-index: 30;
+    // padding: px-to-rem(20);
+    h1 {
+      color: $secondaryColor;
+    }
+
+    &Content {
+      height: 45vh;
+
+      background-color: $listBoxGrayColor;
+      padding: px-to-rem(20);
+
+      .operationRow {
+        flex-wrap: nowrap;
+        .addnewOperation{
+          margin-top: 5px;
+          opacity: .9;
+          cursor: pointer;
+          &:hover{
+            opacity: 1;
+          }
+        }
+      }
+
+      .twDivRow {
+        justify-content: space-around;
+      }
+
+      div {
+        margin-bottom: 7px;
+      }
+
+      .scheduleDiv {
+        background-color: #36363633;
+        padding: px-to-rem(10);
+        border-radius: px-to-rem(5);
+      }
+    }
+  }
+}
+
+.btnWrapper {
+  margin-bottom: 15px;
+  float: right;
+  @include flex(row, start, center, 10px);
+}
+
+.flexContainer {
+  @include flex(row, space-between, center, px-to-rem(10));
+}
+
+.flexDiv {
+  @include flex(row, space-between, center, px-to-rem(10));
+
+  .input {
+    width: 150px;
+  }
+}
+
+.editBtnContainer {
+  @include flex(row, space-between, center, px-to-rem(10));
+  // margin-top: px-to-rem(5);
+  margin-bottom: px-to-rem(5);
+}
+
+.operationFormBtnContainer {
+  margin-right: px-to-rem(20) !important;
+}
+
+.addBtn {
+  background-color: $baseBgGrayColor;
+  border: px-to-rem(1) solid $secondaryColor;
+  padding: px-to-rem(3);
+  color: $secondaryColor;
+  font-size: large;
+  width: px-to-rem(32);
+  border-radius: px-to-rem(5);
+}
+
+// shun
+.scheduleEdit {
+  padding: 20px;
+
+  h2 {
+    color: $secondaryColor;
+    margin-bottom: 20px;
+  }
+
+  .dateNavigateDiv {
+    @include flex(row, space-between, center, px-to-rem(20));
+
+    .dateNavigation {
+      background-color: $baseBgGrayColor;
+      border-radius: px-to-rem(30);
+      border: 1px solid $secondaryColor;
+      padding: 0 px-to-rem(10);
+
+      .selectedDate {
+        color: $secondaryColor;
+
+        display: inline-block;
+        width: px-to-rem(100);
+
+        text-align: center;
+      }
+
+      button {
+        background-color: transparent;
+        border: none;
+        color: $secondaryColor;
+        padding: px-to-rem(5);
+      }
+    }
+
+    .todayBtn {
+      background-color: $baseBgGrayColor;
+      color: $secondaryColor;
+      border: none;
+      border: 1px solid $secondaryColor;
+      padding: px-to-rem(5) px-to-rem(15);
+      border-radius: px-to-rem(30);
+
+      &:hover {
+        background-color: $secondaryColor;
+        color: $whiteColor;
+        opacity: 1;
+      }
+    }
+  }
+
+  .timeline {
+    background-color: #1e1d1d;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    min-height: 35vh;
+    // border: 1px groove $itemGrayColor;
+
+    .calendarTimeline2 {
+      // background-color: #141313;
+      // border-radius: px-to-rem(10) px-to-rem(10) 0 0;
+      // padding: 5px 0px;
+      width: 100%;
+
+      .calendar-days-container2 {
+        display: grid;
+        grid-template-columns: 1fr;
+        height: 60px;
+      }
+
+      .calendar-days2 {
+        .days-header2 {
+          display: grid;
+          grid-template-columns: repeat(31, 1fr);
+          gap: 2px;
+
+          .day-header {
+            text-align: center;
+            background-color: #9a46005c;
+            // background: linear-gradient(45deg, #a3450f, #f27d14);
+            padding: 6px 0px;
+            border-radius: 3px 3px 0px 0px;
+            border-bottom: 2px solid black;
+
+            &.today {
+              background: #363636;
+            }
+          }
+
+        }
+
+
+        .days-grid2 {
+          display: grid;
+          grid-template-columns: repeat(31, 1fr);
+          gap: 2px;
+        }
+
+        .day-cell {
+          text-align: center;
+          padding: 6px 0px;
+          background: #363636;
+          color: white;
+          border-radius: 0px 0px 3px 3px;
+          font-size: 12px;
+
+          &.today {
+            background-color: #e97211;
+          }
+        }
+
+      }
+    }
+  }
+  .addSiteOperation{
+    padding-right: 5px;
+    float: right;
+    opacity: .9;
+    &:hover{
+      opacity: 1;
+      cursor: pointer;
+    }
+  }
+
+  .operations-container {
+    display: grid;
+    grid-template-columns: repeat(31, 1fr);
+    position: relative;
+    width: 100%;
+    margin-top: 20px;
+    // padding: 10px;
+  }
+
+  .operation-bar {
+    height: 3px;
+    color: white;
+    text-align: center;
+    font-size: 12px;
+    border-radius: 5px;
+    padding: 2px 5px;
+    white-space: nowrap;
+    position: relative;
+    margin-bottom: 20px;
+
+    p {
+      position: absolute;
+      top: 5px;
+      font-size: 12px;
+    }
+  }
+
+}
+
+.small{
+  font-size: 12px;
+}
+.paragraph{
+  font-size: 14px;
+}
+.inputLabel2{
+  margin-bottom: 0px !important;
+}

@@ -1,0 +1,21 @@
+//import function
+@use "../components/functions" as *;
+//import components
+@import "../components/mixins";
+@import "../components/variables";
+.btnModalBoxContainer {
+  @include flex(row, center, center, px-to-rem(20));
+  button {
+    border: none;
+    width: px-to-rem(80);
+    padding: px-to-rem(10);
+    border-radius: px-to-rem(20);
+  }
+  button:first-child {
+    background-color: $itemGrayColor;
+    color: $secondaryColor;
+  }
+  button:last-child {
+    background-color: $secondaryColor;
+  }
+}

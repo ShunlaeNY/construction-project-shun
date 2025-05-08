@@ -1,0 +1,111 @@
+//import function
+@use "./components/functions" as *;
+
+//import components
+@import "./components/variables";
+@import "./components/mixins";
+
+.container {
+    background-color: $baseBgGrayColor;
+    // height: 92%;
+    border-radius: px-to-rem(20); //20px
+    padding: px-to-rem(20);
+    z-index: 0;
+
+    .searchAndFilter {
+        @include flex(row, space-between, center, 0);
+
+        .searchContainer {
+            position: relative;
+            top: 0;
+            min-width: px-to-rem(200);
+            // input {
+            //     padding: px-to-rem(6) px-to-rem(10);
+            //     border: 0;
+            //     background-color: $inputGrayColor;
+            //     border-radius: px-to-rem(10);
+            //     width: 100%;
+            //     color: white;
+
+            //     &:hover,
+            //     &:focus {
+            //         outline: 1px solid $itemOrangeColor;
+            //     }
+            // }
+
+            svg {
+                position: absolute;
+                top: px-to-rem(5);
+                right: px-to-rem(5);
+            }
+
+
+        }
+
+        .filterContainer {
+            @include flex(row, space-between, center, px-to-rem(5));
+            position: relative;
+            top: 0;
+
+            .filterDropDown {
+                position: absolute;
+                top: px-to-rem(40);
+                left: px-to-rem(-85);
+                padding: px-to-rem(10) px-to-rem(30);
+                border-radius: px-to-rem(10);
+                line-height: px-to-rem(30);
+                z-index: 10;
+                background-color: $primaryColor;
+
+                p {
+                    color: $whiteColor;
+
+                    &:hover {
+                        cursor: pointer;
+                        // background-color: $itemOrangeColor;
+                        color: $secondaryColor;
+                    }
+                }
+
+            }
+        }
+
+
+    }
+
+    .list {
+        padding-top: px-to-rem(30);
+        // height: 80%;
+
+        .listHeader {
+            position: static;
+            background-color: #363636;
+            padding: px-to-rem(20);
+            border-radius: px-to-rem(15);
+            @include grid(px-to-rem(10) 20% 20% 30% 20% 1fr, 1fr, px-to-rem(10));
+
+            div {
+                @include flex(row, start, center, px-to-rem(5));
+            }
+        }
+
+        .listData {
+            width: 100%;
+            // background-color: #f2f3f3;
+
+            .data {
+                @include grid(px-to-rem(10) 20% 20% 30% 20% 1fr, 1fr, px-to-rem(10));
+                align-items: start;
+                background-color: $listBoxGrayColor;
+                margin: px-to-rem(10) 0;
+                padding: px-to-rem(20);
+                border-radius: px-to-rem(15);
+                touch-action: none;
+
+                .detailBtn {
+                    text-align: right;
+                }
+            }
+        }
+    }
+}

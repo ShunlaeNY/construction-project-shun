@@ -1,0 +1,78 @@
+//import function
+@use "../../../assets/styles/components/functions" as *;
+
+//import components
+@import "../../../assets/styles/components/variables";
+@import "../../../assets/styles/components/mixins";
+
+.groupContainer {
+    top: 10%;
+    left: 30%;
+    z-index: 20;
+    width: 25vw;
+
+    .formGroup {
+        @include flex(column, start, start, px-to-rem(5));
+        // width:100%;
+    }
+}
+
+.groupListContainer {
+    // margin-bottom: px-to-rem(20);
+    border-bottom: 1px solid $itemGrayColor;
+    padding: px-to-rem(10) 0;
+    max-height: px-to-rem(90);
+    overflow-y: scroll;
+    width: 100%;
+
+    &::-webkit-scrollbar {
+        width: 5px; // Set scrollbar width
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $primaryColor; // Style scrollbar thumb
+        border-radius: px-to-rem(10);
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent; // Optional: Customize scrollbar track
+    }
+
+    .createNewGroup {
+        border-radius: px-to-rem(5) !important;
+    }
+
+    .groupList {
+        height: 100%;
+        // width: 100%;
+        line-height: px-to-rem(20);
+
+        .groupItem {
+            border-bottom: 1px solid $secondaryColor;
+            @include flex(row, space-between, start, px-to-rem(5));
+            flex-wrap: nowrap;
+            margin-bottom: px-to-rem(20);
+
+            .groupInputContainer {
+                @include flex(row, start, center, px-to-rem(10));
+                flex-wrap: nowrap;
+
+                .groupInput {
+                    background-color: #1e1e1e;
+                    border: none;
+                    border-radius: px-to-rem(3);
+                    text-indent: px-to-rem(10);
+                    padding: px-to-rem(5);
+                    color: $secondaryColor;
+                    min-width: 250px;
+
+                    &:focus {
+                        background-color: $itemGrayColor;
+                        outline: none;
+                    }
+                }
+
+            }
+        }
+    }
+}

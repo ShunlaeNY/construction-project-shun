@@ -1,0 +1,184 @@
+//import function
+@use "../components/functions" as *;
+//import components
+@import "../components/mixins";
+@import "../components/variables";
+
+.ScheduleDateflexCol {
+  @include flex(column, start, start, 0);
+  width: 100%;
+}
+
+.schedularDatePicker {
+  @include flex(row, space-between, center, px-to-rem(20));
+  margin-bottom: px-to-rem(20);
+  width: 100%;
+
+  .dateNavigateDiv {
+    @include flex(row, space-between, center, px-to-rem(20));
+
+    .dateNavigation {
+      background-color: $baseBgGrayColor;
+      border-radius: px-to-rem(30);
+      border: 1px solid $secondaryColor;
+      padding: 0 px-to-rem(10);
+
+      .selectedDate {
+        color: $secondaryColor;
+
+        display: inline-block;
+        width: px-to-rem(200);
+
+        text-align: center;
+      }
+
+      button {
+        background-color: transparent;
+        border: none;
+        color: $secondaryColor;
+        padding: px-to-rem(5);
+      }
+    }
+
+    .todayBtn {
+      background-color: $baseBgGrayColor;
+      color: $secondaryColor;
+      border: none;
+      border: 1px solid $secondaryColor;
+      padding: px-to-rem(5) px-to-rem(15);
+      border-radius: px-to-rem(30);
+      &:hover{
+        background-color: $secondaryColor;
+        color: $whiteColor;
+        opacity: 1;
+      }
+    }
+  }
+
+  .calendarTabs {
+    @include flex(row, center, center, px-to-rem(5));
+    background-color: $baseBgGrayColor;
+    border: 1px solid $secondaryColor;
+    color: $secondaryColor;
+    border-radius: px-to-rem(30);
+
+    button {
+      border: none;
+      opacity: 0.8;
+      background-color: transparent;
+      color: $secondaryColor;
+      padding: px-to-rem(5) px-to-rem(15);
+      border-radius: px-to-rem(30);
+
+      &.active {
+        background-color: $secondaryColor;
+        color: $whiteColor;
+        opacity: 1;
+      }
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.calendarTimeline {
+  background-color: #141313;
+  border-radius: px-to-rem(10) px-to-rem(10) 0 0;
+  padding: 5px 0px;
+  width: 100%;
+
+  .calendar-days-container {
+    display: grid;
+    grid-template-columns: 15% 1fr;
+    padding-left: 15px;
+    padding-right: 5px;
+    height: 60px;
+  }
+
+  .calendar-days {
+
+
+    .days-header {
+      display: grid;
+      grid-template-columns: repeat(32, 1fr);
+      gap: 2px;
+
+
+      .day-header {
+        text-align: center;
+        background-color: #9a46005c;
+        // background: linear-gradient(45deg, #a3450f, #f27d14);
+        padding: 6px 0px;
+        border-radius: 3px 3px 0px 0px;
+        border-bottom: 2px solid black;
+
+        &.today {
+          background: #363636;
+        }
+      }
+
+    }
+
+    .days-header-week {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 5px;
+
+
+      .day-header-week {
+        text-align: center;
+        background-color: #9a46005c;
+        padding: 6px 0px;
+        border-radius: 3px 3px 0px 0px;
+        border-bottom: 2px double black;
+
+        &.today {
+          background: #363636;
+        }
+      }
+
+    }
+
+
+    .days-grid {
+      display: grid;
+      grid-template-columns: repeat(32, 1fr);
+      gap: 2px;
+    }
+
+    .days-grid-week {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 5px;
+    }
+
+    .day-cell {
+      text-align: center;
+      padding: 6px 0px;
+      background: #363636;
+      color: white;
+      border-radius: 0px 0px 3px 3px;
+      font-size: 12px;
+
+      &.today {
+        background-color: #e97211;
+      }
+    }
+
+    .day-cell-week {
+      text-align: center;
+      padding: 6px 0px;
+      background: #363636;
+      color: white;
+      border-radius: 0px 0px 3px 3px;
+      font-size: 12px;
+
+      &.today {
+        background-color: #e97211;
+      }
+    }
+
+  }
+}

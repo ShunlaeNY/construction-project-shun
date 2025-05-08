@@ -1,0 +1,40 @@
+//import function
+@use "../../../assets/styles/components/functions" as *;
+
+//import components
+@import "../../../assets/styles/components/variables";
+@import "../../../assets/styles/components/mixins";
+
+.VentryContainer {
+    top: 10%;
+    left: 20%;
+    z-index: 20;
+    width: 60vw;
+}
+
+.imageUploadContainer {
+    @include flex(row, center, center, 0);
+    width: 100%;
+    margin-top: px-to-rem(10);
+}
+.btnGp{
+    border-top: 1px solid #333;
+  }
+.vehicleInformation {
+    background-color: #36363630;
+    border-radius: px-to-rem(8);
+    padding: px-to-rem(20);
+    margin-top: px-to-rem(20);
+
+    h4 {
+        margin-bottom: px-to-rem(10);
+        color: $itemOrangeColor;
+    }
+}
+
+.noteInputContainer {
+    background-color: #36363630;
+    border-radius: px-to-rem(8);
+    padding: px-to-rem(20);
+    margin-top: px-to-rem(20);
+}

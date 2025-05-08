@@ -1,0 +1,19 @@
+//import function
+@use "../../../assets/styles/components/functions" as *;
+
+//import components
+@import "../../../assets/styles/components/variables";
+@import "../../../assets/styles/components/mixins";
+
+.BPentryContainer {
+    top: 20%;
+    left: 20%;
+    z-index: 20;
+    width: 50vw;
+}
+
+.imageUploadContainer {
+    @include flex(row, center, center, 0);
+    width: 100%;
+    margin-top: px-to-rem(10);
+}

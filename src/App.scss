@@ -1,0 +1,427 @@
+//import function
+@use "./assets/styles/components/functions" as *;
+
+//import components
+@import "./assets/styles/components/variables";
+@import "./assets/styles/components/mixins";
+//font
+@import url("https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  color: $whiteColor;
+  font-family: "Inria Sans", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h2 {
+  @include responsive-font(1.1rem, 1.3rem, 1.5rem);
+}
+
+p,
+div {
+  @include responsive-font(0.75rem, 0.9rem, 1rem);
+}
+
+button {
+  cursor: pointer;
+}
+
+Link,
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+html {
+  background: url(./assets/images/LoginBg.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+svg,
+button {
+  cursor: pointer;
+}
+
+.flexRow {
+  @include flex(row, start, center, px-to-rem(5));
+}
+
+.flexStart {
+  @include flex(row, start, center, px-to-rem(5));
+}
+
+.flexCol {
+  @include flex(column, start, center, px-to-rem(5));
+}
+
+.flexBaseline {
+  @include flex(row, start, baseline, px-to-rem(5));
+}
+
+.input {
+  padding: px-to-rem(6) 0;
+  text-indent: px-to-rem(10);
+  margin-bottom: px-to-rem(5);
+  border: 0;
+  background-color: $baseBgGrayColor;
+  border: 1px solid $itemOrangeColor;
+  border-radius: px-to-rem(8);
+  width: 100%;
+  color: $itemOrangeColor;
+
+  &:hover,
+  &:focus {
+    outline: 1px solid $itemOrangeColor;
+  }
+}
+
+.readOnlyInput {
+  background-color: #3f3f3f90; // Light gray to indicate read-only
+  border: 1px solid #aaa; // Slightly darker border
+  cursor: not-allowed; // Show "not allowed" cursor
+
+  &:hover,
+  &:focus {
+    outline: 1px solid #aaa;
+  }
+}
+.searchContainer{
+  position: relative;
+  .search {
+    padding: px-to-rem(6) 0;
+    text-indent: px-to-rem(10);
+    border: 0;
+    background-color: $itemGrayColor;
+    // border: 1px solid $itemOrangeColor;
+    border-radius: px-to-rem(10);
+    width: 100%;
+    // color: white;
+    color: $secondaryColor;
+    border: 1px solid $secondaryColor;
+  
+    &:hover,
+    &:focus {
+      outline: 1px solid $itemOrangeColor;
+    }
+  }
+  svg{
+    position: absolute;
+    top: 5px;
+    right: 77%;
+  }
+}
+
+
+.select {
+  padding: px-to-rem(6) px-to-rem(10);
+  border: 0;
+  background-color: $inputGrayColor;
+  border-radius: px-to-rem(10);
+  width: 100%;
+  color: $secondaryColor;
+  border: 1px solid $secondaryColor;
+
+  &:hover,
+  &:focus {
+    outline: 1px solid $itemOrangeColor;
+  }
+
+  option {
+    background-color: $itemGrayColor;
+    color: $secondaryColor;
+
+    &::after {
+      background-color: red;
+    }
+  }
+}
+
+//Layout
+
+.loginContainer {
+  // background-color: $whiteColor;
+  width: 400px;
+  height: 500px;
+  margin: auto;
+  border-radius: px-to-rem(20);
+  padding: px-to-rem(20);
+}
+
+.baseContainer {
+  background-color: $primaryColor;
+  width: auto;
+  height: 95vh;
+  margin: px-to-rem(20);
+  // padding: px-to-rem(10);
+  border-radius: px-to-rem(30); //30px
+  @include grid(80px 1fr, 10% 3fr, px-to-rem(5));
+}
+
+.sideMenu {
+  grid-row: 1/3;
+  @include flex(column, start, center, px-to-rem(20));
+  padding: px-to-rem(10);
+  border-right: 1px solid #36363691;
+
+  // box-shadow: $itemGrayColor 1px 0px 4px;
+
+  .menuIcon {
+    position: relative;
+    top: 0;
+  }
+
+  .menuIcons {
+    height: 76vh;
+    @include flex(column, space-between, center, 0);
+  }
+
+  .menu {
+    position: absolute;
+    z-index: 5000;
+    left: 100px;
+    top: 0px;
+    min-width: 150px;
+    background-color: $primaryColor;
+    border-radius: px-to-rem(20);
+    padding: px-to-rem(15);
+
+    .menuTitles {
+      @include flex(row, start, center, px-to-rem(10));
+
+      &:hover p,
+      &:hover svg path {
+        color: $itemOrangeColor;
+        fill: $itemOrangeColor;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .logout {
+    justify-self: flex-end;
+  }
+
+  .sideIcon {
+    background-color: $itemGrayColor;
+    border-radius: 50%;
+    padding: px-to-rem(7);
+    margin: px-to-rem(10) 0;
+    transition: background-color 0.3s ease;
+
+    svg {
+      width: px-to-rem(20);
+      height: px-to-rem(20);
+    }
+
+    &:hover {
+      background-color: $itemOrangeColor;
+    }
+
+    &.active {
+      background-color: $itemOrangeColor;
+    }
+  }
+}
+
+.topMenu {
+  @include flex(row, space-between, center, 0);
+  padding: px-to-rem(10) px-to-rem(20) px-to-rem(10) px-to-rem(10);
+
+  .menuTitle {
+    @include flex(row, start, baseline, px-to-rem(5));
+  }
+
+  .userProfile {
+    @include flex(row, start, center, px-to-rem(10));
+
+    div {
+      .profilePopUp {
+        max-width: px-to-rem(35);
+        border-radius: 50%;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.mainContent {
+  // background-color: red;
+  // height: calc(100vh - #{px-to-rem(65)});
+  padding: px-to-rem(10) px-to-rem(20) px-to-rem(10) px-to-rem(10);
+  overflow: hidden;
+}
+
+//button
+.btnContainer {
+  @include flex(row, center, center, px-to-rem(20));
+  padding: 10px 0px;
+  // margin: px-to-rem(20) 0;
+  border-top: 1px solid #333;
+}
+
+.buttonOne {
+  background-color: $itemGrayColor;
+  border: none;
+  color: $itemOrangeColor;
+  border-radius: px-to-rem(20);
+  padding: px-to-rem(2) px-to-rem(10);
+
+  svg path {
+    color: $itemOrangeColor;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $itemOrangeColor;
+    color: $whiteColor;
+
+    svg path {
+      color: $whiteColor;
+    }
+  }
+}
+
+.buttonTwo {
+  background-color: $itemOrangeColor;
+  border: none;
+  color: $whiteColor;
+  border-radius: px-to-rem(20);
+  opacity: 0.9;
+  padding: px-to-rem(6) px-to-rem(15);
+
+  &:hover,
+  &:focus {
+    background-color: $itemGrayColor;
+    color: $secondaryColor;
+    opacity: 1;
+  }
+}
+
+.cancelBtn {
+  background-color: #333;
+  border: none;
+  color: $whiteColor;
+  border-radius: px-to-rem(20);
+  // opacity: 0.5;
+  // padding: px-to-rem(7) px-to-rem(10);
+  padding: px-to-rem(7) px-to-rem(13);
+  // opacity: 0.9;
+  padding: px-to-rem(6) px-to-rem(15);
+
+  &:hover{
+    background-color: $itemGrayColor;
+    color: $secondaryColor;
+    // opacity: 1;
+    
+  }
+}
+
+.saveBtn {
+  background-color: $itemOrangeColor;
+  border: none;
+  color: $whiteColor;
+  border-radius: px-to-rem(20);
+  padding: px-to-rem(7) px-to-rem(13);
+  // opacity: 0.9;
+  padding: px-to-rem(6) px-to-rem(15);
+
+  &:hover{
+    background-color: $itemGrayColor;
+    color: $secondaryColor;
+    // opacity: 1;
+  }
+  
+}
+
+.createNewBtn {
+  background-color: $baseBgGrayColor;
+  border: 2px solid $itemOrangeColor;
+  color: $itemOrangeColor;
+  border-radius: px-to-rem(20);
+  padding: px-to-rem(6) px-to-rem(15);
+
+  &:hover,
+  &:focus {
+    background-color: $secondaryColor;
+    color: $whiteColor;
+  }
+}
+
+
+
+.inputLabel {
+  @include flex(row, space-between, center, 0);
+  flex-wrap: wrap;
+  margin-bottom: px-to-rem(10);
+
+  .flexRow {
+    small {
+      color: $secondaryColor;
+    }
+  }
+
+  .instruction {
+    small {
+      color: $instructionGrayColor;
+    }
+  }
+}
+
+input[type="date"] {
+  position: relative;
+  color: $itemOrangeColor; // Adjust text color if needed
+
+  &::-webkit-calendar-picker-indicator {
+    filter: invert(0%) sepia(95%) saturate(500%) hue-rotate(0deg);
+    cursor: pointer;
+  }
+
+  // For better customization, hide default icon and replace it
+  &::-webkit-inner-spin-button,
+  &::-webkit-clear-button {
+    display: none;
+  }
+
+  // If you want to use a custom icon
+  &::-webkit-calendar-picker-indicator {
+    background: url("./assets/images/schedule.png") no-repeat center;
+    margin-right: px-to-rem(10);
+    background-size: contain;
+    opacity: 1;
+  }
+}
+
+.modelTwoColumn {
+  @include grid(1fr 1fr, 1fr, px-to-rem(30));
+}
+
+// dnd 
+.droppable-area {
+  max-height: 600px;
+  max-width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.loading-message,
+    .error-message,
+    .no-data-message {
+        text-align: center;
+        padding: 20px;
+        color: $itemGrayColor;
+        font-size: 14px;
+    }
+
+    .error-message {
+        color: #ff5252;
+    }
+
+    .no-data-message {
+        color: #aaa;
+    }

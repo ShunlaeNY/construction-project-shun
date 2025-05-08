@@ -1,0 +1,44 @@
+//flex
+@use "./functions" as *;
+
+@mixin flex($direction, $justify, $align, $gap) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+
+    @if $gap !=0 {
+        gap: $gap;
+    }
+
+    flex-wrap: wrap;
+}
+
+//grid
+@mixin grid($template-columns, $template-rows, $gap) {
+    display: grid;
+    grid-template-columns: $template-columns;
+    grid-template-rows: $template-rows;
+
+    @if $gap !=0 {
+        gap: $gap;
+    }
+}
+
+//responsive-font
+@mixin responsive-font($small, $medium, $large) {
+    font-size: $large;
+
+    @media (max-width: px-to-rem(1024)) {
+        font-size: $medium;
+    }
+
+    @media (max-width: px-to-rem(768)) {
+        font-size: $small;
+    }
+}
+
+@mixin applyWidth($widths) {
+    min-width: map-get($widths, min-width);
+    max-width: map-get($widths, max-width);
+}

@@ -1,0 +1,9 @@
+//px to rem conversion (value only)
+@function px-to-rem($px-value) {
+    @return #{$px-value / 16}rem;
+}
+
+@function setWidth($min, $max) {
+    @return (min-width:$min,
+        max-width:$max )
+}

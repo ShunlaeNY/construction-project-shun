@@ -1,0 +1,24 @@
+//import function
+
+@use "../../../assets/styles/components/functions" as *;
+
+//import components
+@import "../../../assets/styles/components/variables";
+@import "../../../assets/styles/components/mixins";
+
+.staffHeader {
+  position: static;
+  background-color: #363636;
+  padding: px-to-rem(20);
+  border-radius: px-to-rem(15);
+
+  @include grid(
+    px-to-rem(20) 5% 15% 20% 15% 15% 15% px-to-rem(10),
+    1fr,
+    px-to-rem(20)
+  );
+
+  div {
+    @include flex(row, start, center, px-to-rem(5));
+  }
+}

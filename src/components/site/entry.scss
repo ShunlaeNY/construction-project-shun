@@ -1,0 +1,26 @@
+//import function
+@use "../../assets/styles/components/functions" as *;
+
+//import components
+@import "../../assets/styles/components/variables";
+@import "../../assets/styles/components/mixins";
+
+.hint {
+  @include flex(row, center, center, px-to-rem(1));
+}
+
+.checkBoxContaier {
+  background-color: rgba(54, 54, 54, 0.1882352941);
+  padding: px-to-rem(10) px-to-rem(20) px-to-rem(20) px-to-rem(20);
+  margin-top: px-to-rem(10);
+  border-radius: px-to-rem(10);
+}
+
+.btnGp {
+  border-top: 1px solid #333;
+}
+
+.btnContainer2 {
+  @include flex (row, space-between, center, 0);
+  padding: 10px 20px;
+}

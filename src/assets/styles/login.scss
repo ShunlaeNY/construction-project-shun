@@ -1,0 +1,76 @@
+$primary-color: #4caf50;
+//import function
+@use "./components/functions" as *;
+
+//import components
+@import "./components/variables";
+@import "./components/mixins";
+
+
+.flexColLogin {
+  @include flex(column, center, center, 0);
+  height: 100vh;
+}
+
+.loginBox {
+  // width: 22%;
+  width: 300px;
+  background-color: #000000a8;
+  border-radius: 16px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 50px 30px;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+
+    div {
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+
+      svg {
+        width: 40px;
+        height: 40px;
+      }
+    }
+  }
+
+  input {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    color: #ffffff;
+    border-bottom: 1px solid #f27d14;
+  }
+
+  input:focus {
+    outline: none;
+  }
+
+  button {
+    background-color: #f27d14;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 25px;
+  }
+
+  small {
+    color: red;
+  }
+}
+
+@media (max-width: 400px) {
+  .loginBox {
+    width: 70%;
+    padding-top: 4px;
+    // padding-bottom: 4px;
+    // background-color: red;
+  }
+}

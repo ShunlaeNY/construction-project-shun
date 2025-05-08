@@ -1,0 +1,143 @@
+//import function
+@use "../../assets/styles/components/functions" as *;
+
+//import components
+@import "../../assets/styles/components/variables";
+@import "../../assets/styles/components/mixins";
+
+.dateFilterSection {
+  @include flex(row, space-between, center, 0);
+  margin-bottom: px-to-rem(20);
+}
+
+.allDetailsSection {
+  height: 65vh;
+  // overflow-y: scroll;
+  background-color: $baseBgGrayColor;
+  border-radius: px-to-rem(20);
+  padding: px-to-rem(15) px-to-rem(15) px-to-rem(15) px-to-rem(15);
+
+  .allDetails {
+    @include flex(column, start, start, px-to-rem(10));
+    flex-wrap: nowrap;
+    height: calc(100vh - px-to-rem(250));
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .detailContainer {
+      width: calc(100% - px-to-rem(40));
+      margin-bottom: 10px;
+      background-color: #1e1d1d;
+      padding: px-to-rem(10) px-to-rem(20);
+      border-radius: px-to-rem(15);
+
+      .detailHeader {
+        @include flex(row, space-between, center, 0);
+        padding: 0 px-to-rem(5);
+        h3 {
+          color: $secondaryColor;
+        }
+      }
+
+      .detailContent {
+        @include grid(15% 1fr, 1fr, px-to-rem(30));
+        // flex-wrap: nowrap;
+        background-color: #36363638;
+        padding: px-to-rem(15);
+        border-radius: px-to-rem(10);
+        margin: px-to-rem(5) 0;
+
+        .operationDetail {
+          border: 1px solid #5577ff;
+          padding: px-to-rem(2) px-to-rem(10);
+          border-radius: px-to-rem(10);
+
+          h4 {
+            
+            color: #5577ff;
+            font-weight: bold;
+            margin-bottom: px-to-rem(5);
+            text-align: center;
+          }
+
+          .operationDetailsGrid{
+            @include grid(10% 1fr,1fr,10px);
+            justify-content: start;
+            align-items: start;
+            padding: 5px;
+            p{
+              font-size: 12px;
+            }
+          }
+        }
+
+        .staffVehicleDetail {
+          @include flex(column, start, center, px-to-rem(10));
+          width: 100%;
+          // background-color: #5577FF;
+
+          .staffContainer,
+          .vehicleContainer {
+            @include flex(row, start, center, px-to-rem(10));
+            flex-wrap: nowrap;
+            width: 100%;
+          }
+
+          .staffDetailContainer,
+          .vehicleDetailContainer {
+            @include flex(row, start, center, px-to-rem(10));
+            background-color: $inputGrayColor;
+            padding: px-to-rem(10) px-to-rem(20);
+            min-height: 3vh;
+            width: calc(100% - px-to-rem(20));
+            border-radius: px-to-rem(20);
+          }
+          
+
+          .staffImgContainer,
+          .vehicleImgContainer {
+            position: relative;
+            top: 0;
+            margin-left: 5px;
+            .teamColor,
+            .gpColor {
+              width: px-to-rem(41);
+              height: px-to-rem(41);
+              background-color: #5577ff;
+              border-radius: 50%;
+            }
+
+            .staffImg,
+            .vehicleImg {
+              position: absolute;
+              // top: -1px;
+              left: 5px;
+              width: px-to-rem(40);
+              height: px-to-rem(40);
+              border-radius: 50%;
+              border: 1px solid rgba(217, 217, 217, 0.062745098);
+            }
+          }
+
+          .staffName,
+          .vehicleName {
+            text-align: center;
+          }
+          .addStaffBtn,.addVehicleBtn{
+            opacity: .9;
+            transition: .3;
+          }
+
+          .addStaffBtn:hover,
+          .addVehicleBtn:hover {
+            cursor: pointer;
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}

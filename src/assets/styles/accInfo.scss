@@ -1,0 +1,61 @@
+//import function
+@use "../styles/components/functions" as *;
+//import components
+@import "../styles/components/variables";
+@import "../styles/components/mixins";
+
+.infoContainer {
+  background-color: $baseBgGrayColor;
+  height: 72vh;
+  padding: 20px;
+  overflow: hidden;
+  border-radius: px-to-rem(30);
+  .ImageContainer{
+    @include flex(row,start, center,50px);
+    .img{
+      padding-left: 30px;
+      img{
+        border-radius: 15px;
+      }
+    }
+    .staffName{
+      .flex{
+        @include flex(row,center,baseline,5px);
+      }
+      h2{
+        color: $secondaryColor;        
+      }
+    }
+  }
+  .infoHeader{
+    color: $secondaryColor;
+    padding-left: 30px;
+    padding-top: 30px;
+  }
+  .detail{
+    width: 50%;
+    @include grid(20% 15px 1fr,1fr,5px);
+    padding-top: 30px;
+    padding-left: 50px;
+    line-height: 25px;
+    .colon{
+      color: $secondaryColor;
+    }
+  }
+  .createNewButton {
+    margin-top: 15px;
+    background-color: $baseBgGrayColor;
+    border: 2px solid $itemOrangeColor;
+    color: $itemOrangeColor;
+    border-radius: px-to-rem(20);
+    padding: px-to-rem(5) px-to-rem(15);
+    svg path,p{color: $itemOrangeColor;font-size: 12px;}
+    &:hover,
+    &:focus {
+      background-color: $secondaryColor;
+      svg path,p{
+        color: $whiteColor;
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+//import function
+@use "../components/functions" as *;
+//import components
+@import "../components/variables";
+@import "../components/mixins";
+
+.checkboxContainer {
+
+  input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    border: px-to-rem(1) solid $secondaryColor;
+    border-radius: px-to-rem(2);
+
+    padding: px-to-rem(7);
+    display: inline-block;
+    position: relative;
+  }
+
+  input[type="checkbox"]:checked {
+    background-color: $secondaryColor;
+  }
+
+  input[type="checkbox"]:checked:after {
+    content: "";
+    position: absolute;
+    left: px-to-rem(5);
+    top: px-to-rem(0);
+    width: px-to-rem(3);
+    height: px-to-rem(10);
+    border: inset #3f3f3f;
+    border-width: 0 px-to-rem(2) px-to-rem(2) 0;
+    transform: rotate(45deg);
+    position: absolute;
+  }
+}

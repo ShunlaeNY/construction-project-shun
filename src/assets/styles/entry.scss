@@ -1,0 +1,74 @@
+//import function
+@use "./components/functions" as *;
+
+//import components
+@import "./components/variables";
+@import "./components/mixins";
+
+.bgBlur {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); // Semi-transparent dark overlay
+  backdrop-filter: blur(px-to-rem(5)); // Apply blur effect
+  z-index: 19;
+}
+
+.entryContainer {
+  background-color: $modelBoxBgColor;
+  position: absolute;
+  z-index: 20;
+  // padding: px-to-rem(5);
+  border-radius: px-to-rem(15);
+  @include flex(column, center, center, 0);
+  box-shadow: rgba(244, 244, 244, 0.15) 1.95px 1.95px 2.6px;
+
+  .modelTitle {
+    background-color: $itemGrayColor;
+    width: 100%;
+    padding: px-to-rem(5) 0;
+    border-radius: px-to-rem(15) px-to-rem(15) px-to-rem(0) px-to-rem(0);
+    text-align: center;
+
+    h4 {
+      color: $secondaryColor;
+    }
+  }
+
+  .modelContent {
+    // background-color: $modelBoxBgColor;
+    width: 100%;
+
+    border-radius: px-to-rem(15) px-to-rem(15) px-to-rem(0) px-to-rem(0);
+
+    // text-align: center;
+    .formGroup {
+      // width: 100%;
+      padding: px-to-rem(20);
+
+      .colorFlexRow {
+        flex-wrap: nowrap;
+        padding: px-to-rem(20) 0;
+      }
+    }
+  }
+}
+.addOperationFormButton {
+  position: absolute;
+  background-color: $secondaryColor;
+  z-index: 11;
+  bottom: 25px;
+  right: 20px;
+  border: none;
+  padding:  px-to-rem(10);
+  border-radius: 50%;
+  opacity: .9;
+  font-size: 24px;
+  &:hover{
+    background-color: $itemOrangeColor;
+    color: $whiteColor;
+    opacity: 1;
+  }
+}

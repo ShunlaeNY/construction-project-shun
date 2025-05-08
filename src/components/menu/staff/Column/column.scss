@@ -1,0 +1,67 @@
+//import function
+@use "../../../../assets/styles/components/functions" as *;
+
+//import components
+@import "../../../../assets/styles/components/variables";
+@import "../../../../assets/styles/components/mixins";
+
+// .scrollable {
+// height: 55vh;
+// overflow-y: scroll;
+
+// &::-webkit-scrollbar {
+//     display: none;
+// }
+// }
+
+// .staffListHeader {
+//   background-color: blue;
+//   position: static;
+//   background-color: #363636;
+//   padding: px-to-rem(20);
+//   border-radius: px-to-rem(15);
+//   @include grid(repeat(4, 1fr), 0, px-to-rem(10));
+
+//   div {
+//     @include flex(row, start, center, px-to-rem(5));
+//   }
+// }
+
+.staffListData {
+  width: 100%;
+  max-height: 56vh;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    width: 5px; // Set scrollbar width
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $primaryColor; // Style scrollbar thumb
+    border-radius: px-to-rem(10);
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent; // Optional: Customize scrollbar track
+  }
+
+  .data {
+    @include grid(
+      px-to-rem(20) 5% 15% 20% 15% 15% 15% px-to-rem(10),
+      1fr,
+      px-to-rem(20)
+    );
+    // @include grid(px-to-rem(10) 20% 30% 1fr, 1fr, px-to-rem(10));
+    // @include grid(repeat(4, 1fr), 0, px-to-rem(10));
+    align-items: start;
+    margin: px-to-rem(10) 0;
+    padding: px-to-rem(20);
+    border-radius: px-to-rem(15);
+    background-color: $listBoxGrayColor;
+    touch-action: none;
+
+    .detailBtn {
+      //   text-align: right;
+    }
+  }
+}
