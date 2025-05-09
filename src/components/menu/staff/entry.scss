@@ -11,7 +11,9 @@
   z-index: 20;
   width: 60vw;
 }
-
+.readOnlyInput{
+  display: none;
+}
 .btnGp {
   border-top: 1px solid #333;
 }

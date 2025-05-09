@@ -277,7 +277,7 @@ export default function Entry({
                           </option>
                         ))}
                       </select>
-                      <svg
+                      <svg style={{marginBottom:"5px"}}
                         onClick={handleCreateTeam}
                         xmlns="http://www.w3.org/2000/svg"
                         width="41"
@@ -566,7 +566,7 @@ export default function Entry({
                       />
                     </div>
                   </div>
-                  <div>
+                  <div className={formData.id ? "readOnlyInput" : ""}>
                     <label htmlFor="password" className="inputLabel">
                       <div className="flexRow">
                         <small>[Required]</small>
@@ -617,21 +617,6 @@ export default function Entry({
                       </select>
                     </div>
                   </div>
-
-                  {/* <div className="checkBoxContaier">
-                      <label htmlFor="name" className="inputLabel">
-                        <div className="flexRow">
-                          <small>[Required]</small>
-                          <p>Skills</p>
-                        </div>
-                        <div className="instruction">
-                          <small>Choose Staff Skills</small>
-                        </div>
-                      </label>
-                        {skills.map((skill) => (
-                          <Checkbox label={skill.name} id={skill.id} value={skill.id} name={`skill-${skill.id}`}/>
-                        ))}
-                    </div> */}
                 </div>
               </div>
             </div>

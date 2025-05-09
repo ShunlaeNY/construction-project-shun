@@ -27,7 +27,17 @@ export default function UserProfile() {
   );
 useEffect(() => {
   if (userData) {
-    setFormData(userData);
+    setFormData({
+      name:userData.name,
+      email:userData.email,
+      phoneNumber:userData.phoneNumber,
+      address:userData.address,
+      dob:userData.dob,
+      joinedDate:userData.joinedDate,
+      image:userData.image,
+      password:""
+
+    });
   }
 }, [userData]);
 
@@ -58,27 +68,7 @@ useEffect(() => {
     reader.readAsDataURL(file);
   };
 
-  // Handle form clear/reset
-  const handleClear = () => {
-    setFormData({
-      name: "",
-      image: "",
-      usertypesId: "",
-      teamId: "",
-      email: "",
-      password: "",
-      address: "",
-      phoneNumber: "",
-      employmentStatus: "Employed",
-      workingStatus: "Available",
-      position: "",
-      dob: "",
-      joinedDate: "",
-    });
-    setErrors({});
-  };
   const handleCancel = () => {
-    handleClear();
     setEditStatus(false);
   };
 
@@ -411,7 +401,7 @@ useEffect(() => {
                           />
                         </div>
                       </div>
-                      {/* <div>
+                      <div>
                         <label htmlFor="password" className="inputLabel">
                           <div className="flexRow">
                             <small>[Required]</small>
@@ -434,7 +424,7 @@ useEffect(() => {
                             // required
                           />
                         </div>
-                      </div> */}
+                      </div>
                     </div>
                   </div>
                 </div>
