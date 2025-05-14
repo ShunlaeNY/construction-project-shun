@@ -46,7 +46,7 @@ export default function SideMenu() {
         <div className="flexCol">
           <Link to="/home">
             <div className="tooltip">
-              <div className={`sideIcon ${isActive("/") ? "active" : ""}`}>
+              <div className={`sideIcon ${isActive("/home") ? "active" : ""}`}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="26"

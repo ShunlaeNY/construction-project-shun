@@ -9,14 +9,6 @@ const ImageUpload = ({value,handleFileChange}) => {
     }
   },[value])
 
-  // const handleImageChange = (event) => {
-  //   if (event.target.files && event.target.files[0]) {
-  //     setPreview(URL.createObjectURL(event.target.files[0]));
-  //   }
-  // };
-
-  
-
   return (
     <div className="imageUploadContainer">
       <input
